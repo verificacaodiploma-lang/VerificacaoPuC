@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>PUC-MG — Sistema de Verificação de Diplomas</title>
+    <title>PUC-Campinas — Sistema de Verificação de Diplomas</title>
     <style>
         :root {
             --bg: #f7f8fa;
@@ -150,13 +150,13 @@
 
 <body>
     <header>
-        <div class="brand" id="brand">PUC-MG — Sistema de Verificação de Diplomas</div>
-        <div class="muted" id="subtitle">Pontifícia Universidade Católica de Minas Gerais</div>
+        <div class="brand" id="brand">PUC-Campinas — Sistema de Verificação de Diplomas</div>
+        <div class="muted" id="subtitle">Pontifícia Universidade Católica de Campinas</div>
     </header>
 
     <div class="container">
         <div class="search" role="search" aria-label="Pesquisar diploma">
-            <input id="q" placeholder="Consultar por número do diploma (ex: 477673-76)" aria-label="Número do diploma" />
+            <input id="q" placeholder="Consultar por número do diploma (ex: 577546-75)" aria-label="Número do diploma" />
             <button id="btn">Consultar</button>
         </div>
 
@@ -191,16 +191,16 @@
     </div>
 
     <footer id="footerText">
-        PUC-MG — © 2025
+        PUC-Campinas — © 2025
     </footer>
 
     <script>
         const records = {
-            '477673-76': {
-                diploma: '477673-76',
-                name: 'Hélida Maria da Silva',
-                degree: 'Bacharel em Psicologia',
-                inst: 'Pontifícia Universidade Católica de Minas Gerais (PUC-MG)',
+            '577546-75': {
+                diploma: '577546-75',
+                name: 'Franciele Ferreira de Melo S. Siqueira',
+                degree: 'Bacharel em Fisioterapia',
+                inst: 'Pontifícia Universidade Católica de Campinas (PUC-Campinas)',
                 date: 'Conclusão em 10/08/2024',
                 status: 'Ativo'
             }
@@ -231,8 +231,8 @@
                 document.getElementById('status').innerText = '—';
                 document.getElementById('dnum').innerText = '—';
 
-                brand.innerText = `PUC-MG — Sistema de Verificação de Diplomas`;
-                footerText.innerText = `PUC-MG — © 2025`;
+                brand.innerText = `PUC-Campinas — Sistema de Verificação de Diplomas`;
+                footerText.innerText = `PUC-Campinas — © 2025`;
             }
         });
     </script>
