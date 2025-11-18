@@ -4,49 +4,58 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>PUC-Campinas — Sistema de Verificação de Diplomas</title>
+    <title>PUC-SP — Sistema de Verificação de Diplomas</title>
+
     <style>
         :root {
-            --bg: #f7f8fa;
+            --bg: #f4f6fa;
             --card: #ffffff;
-            --accent: #002e5d;
+            --accent: #003366; /* Azul oficial PUC-SP */
             --muted: #6b7280;
-            --gold: #d4af37;
+            --gold: #d4af37; /* Dourado institucional */
         }
 
         body {
-            font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
             background: var(--bg);
             margin: 0;
             color: #0f172a;
         }
 
+        /* --- HEADER --- */
         header {
-            background: linear-gradient(90deg, #002e5d20, #002e5d00);
+            background: var(--accent);
             padding: 24px 28px;
-            border-bottom: 2px solid var(--gold);
             display: flex;
             align-items: center;
             justify-content: space-between;
+            border-bottom: 4px solid var(--gold);
         }
 
         .brand {
             font-weight: 700;
             font-size: 18px;
-            color: var(--accent);
+            color: white;
         }
 
+        .subtitle {
+            color: #dfe7f2;
+            font-size: 14px;
+        }
+
+        /* --- CONTAINER --- */
         .container {
             max-width: 980px;
             margin: 36px auto;
             padding: 20px;
         }
 
+        /* --- SEARCH BOX --- */
         .search {
             background: var(--card);
             border-radius: 12px;
             padding: 20px;
-            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
             display: flex;
             gap: 16px;
             align-items: center;
@@ -55,7 +64,7 @@
         .search input {
             flex: 1;
             padding: 14px 16px;
-            border: 1px solid #e6e9ee;
+            border: 1px solid #d0d6df;
             border-radius: 8px;
             font-size: 15px;
         }
@@ -64,14 +73,14 @@
             background: var(--accent);
             color: white;
             border: none;
-            padding: 12px 16px;
+            padding: 12px 18px;
             border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
         }
 
         .search button:hover {
-            background: #003b7a;
+            background: #00284f;
         }
 
         .content {
@@ -88,23 +97,17 @@
             width: 460px;
         }
 
+        /* --- CARD --- */
         .card {
             background: var(--card);
             border-radius: 12px;
             padding: 22px;
-            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
         }
 
         .muted {
             color: var(--muted);
             font-size: 14px;
-        }
-
-        .img-wrap {
-            background: #f8faff;
-            padding: 18px;
-            border-radius: 10px;
-            border: 1px solid #e5edff;
         }
 
         .meta {
@@ -114,13 +117,28 @@
 
         .label {
             display: inline-block;
-            padding: 6px 10px;
+            padding: 6px 12px;
             border-radius: 8px;
-            background: #e6ecff;
-            color: var(--accent);
+            background: var(--accent);
+            color: white;
             font-weight: 700;
         }
 
+        /* --- PREVIEW --- */
+        .img-wrap {
+            background: #f3f6fd;
+            padding: 18px;
+            border-radius: 10px;
+            border: 1px solid #dce4f7;
+        }
+
+        #previewCanvas {
+            max-width: 100%;
+            border-radius: 8px;
+            background: white;
+        }
+
+        /* --- FOOTER --- */
         footer {
             max-width: 980px;
             margin: 28px auto;
@@ -138,63 +156,67 @@
                 width: 100%;
             }
         }
-
-        #previewCanvas {
-            max-width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 8px 30px rgba(12, 20, 40, 0.06);
-            background: white;
-        }
     </style>
 </head>
 
 <body>
+
     <header>
-        <div class="brand" id="brand">PUC-Campinas — Sistema de Verificação de Diplomas</div>
-        <div class="muted" id="subtitle">Pontifícia Universidade Católica de Campinas</div>
+        <div class="brand" id="brand">PUC-SP — Sistema de Verificação de Diplomas</div>
+        <div class="subtitle" id="subtitle">Pontifícia Universidade Católica de São Paulo</div>
     </header>
 
     <div class="container">
-        <div class="search" role="search" aria-label="Pesquisar diploma">
-            <input id="q" placeholder="Consultar por número do diploma (ex: 577546-75)" aria-label="Número do diploma" />
+
+        <!-- SEARCH -->
+        <div class="search">
+            <input id="q" placeholder="Consultar por número do diploma (ex: 47757-86)" />
             <button id="btn">Consultar</button>
         </div>
 
         <div class="content">
+
+            <!-- LEFT SIDE -->
             <div class="left">
                 <div class="card" id="result">
                     <div class="muted">Resultado da verificação</div>
+
                     <h2 id="name">—</h2>
                     <div class="meta" id="degree">—</div>
                     <div class="meta" id="inst">—</div>
                     <div class="meta" id="date">—</div>
+
                     <div style="margin-top:14px;">
                         <span class="label" id="status">—</span>
                     </div>
+
                     <hr style="margin:18px 0;border:none;border-top:1px solid #eef2f6" />
+
                     <div class="muted">Número do diploma</div>
                     <div id="dnum" style="font-weight:700;margin-top:6px">—</div>
                 </div>
             </div>
 
+            <!-- RIGHT SIDE -->
             <div class="right">
                 <div class="card">
                     <div class="muted">Visualização</div>
                     <div class="img-wrap" style="margin-top:12px;display:flex;justify-content:center">
-                        <canvas id="previewCanvas" width="420" height="260" role="img"
-                            aria-label="Pré-visualização do diploma"></canvas>
+                        <canvas id="previewCanvas" width="420" height="260"></canvas>
                     </div>
                 </div>
             </div>
+
         </div>
 
     </div>
 
     <footer id="footerText">
-        PUC-Campinas — © 2025
+        PUC-SP — © 2025
     </footer>
 
     <script>
+        /* --- REGISTROS --- */
         const records = {
             '577546-75': {
                 diploma: '577546-75',
@@ -203,9 +225,18 @@
                 inst: 'Pontifícia Universidade Católica de Campinas (PUC-Campinas)',
                 date: 'Conclusão em 10/08/2024',
                 status: 'Ativo'
+            },
+            '47757-86': {
+                diploma: '47757-86',
+                name: 'Alex Aparecido Fernandes Rosseti',
+                degree: 'Mestrado em Psicologia',
+                inst: 'Pontifícia Universidade Católica de São Paulo (PUC-SP)',
+                date: 'Conclusão em 14/08/2022',
+                status: 'Ativo'
             }
         };
 
+        /* --- CONSULTA --- */
         document.getElementById('btn').addEventListener('click', function () {
             const q = document.getElementById('q').value.trim();
             const result = records[q];
@@ -224,6 +255,7 @@
                 footerText.innerText = `${result.inst} — © 2025`;
             } else {
                 alert('Diploma não encontrado. Verifique o número digitado.');
+
                 document.getElementById('name').innerText = '—';
                 document.getElementById('degree').innerText = '—';
                 document.getElementById('inst').innerText = '—';
@@ -231,11 +263,11 @@
                 document.getElementById('status').innerText = '—';
                 document.getElementById('dnum').innerText = '—';
 
-                brand.innerText = `PUC-Campinas — Sistema de Verificação de Diplomas`;
-                footerText.innerText = `PUC-Campinas — © 2025`;
+                brand.innerText = `PUC-SP — Sistema de Verificação de Diplomas`;
+                footerText.innerText = `PUC-SP — © 2025`;
             }
         });
     </script>
-</body>
 
+</body>
 </html>
