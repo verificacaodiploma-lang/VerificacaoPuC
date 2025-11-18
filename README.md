@@ -170,7 +170,7 @@
 
         <!-- SEARCH -->
         <div class="search">
-            <input id="q" placeholder="Consultar por número do diploma (ex: 47757-86)" />
+            <input id="q" placeholder="Consultar por número do diploma (ex: 57656-86)" />
             <button id="btn">Consultar</button>
         </div>
 
@@ -232,6 +232,14 @@
                 degree: 'Mestrado em Psicologia',
                 inst: 'Pontifícia Universidade Católica de São Paulo (PUC-SP)',
                 date: 'Conclusão em 14/08/2022',
+                status: 'Ativo'
+            },
+            '57656-86': {
+                diploma: '57656-86',
+                name: 'Alex Aparecido Fernandes Rosseti',
+                degree: 'Doutorado em Psicologia',
+                inst: 'Pontifícia Universidade Católica de São Paulo (PUC-SP)',
+                date: 'Conclusão em 24/06/2025',
                 status: 'Ativo'
             }
         };
