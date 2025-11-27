@@ -22,7 +22,6 @@
             color: #0f172a;
         }
 
-        /* --- HEADER --- */
         header {
             background: var(--accent);
             padding: 24px 28px;
@@ -43,14 +42,12 @@
             font-size: 14px;
         }
 
-        /* --- CONTAINER --- */
         .container {
             max-width: 980px;
             margin: 36px auto;
             padding: 20px;
         }
 
-        /* --- SEARCH BOX --- */
         .search {
             background: var(--card);
             border-radius: 12px;
@@ -97,7 +94,6 @@
             width: 460px;
         }
 
-        /* --- CARD --- */
         .card {
             background: var(--card);
             border-radius: 12px;
@@ -124,7 +120,6 @@
             font-weight: 700;
         }
 
-        /* --- PREVIEW --- */
         .img-wrap {
             background: #f3f6fd;
             padding: 18px;
@@ -138,7 +133,6 @@
             background: white;
         }
 
-        /* --- FOOTER --- */
         footer {
             max-width: 980px;
             margin: 28px auto;
@@ -168,7 +162,6 @@
 
     <div class="container">
 
-        <!-- SEARCH -->
         <div class="search">
             <input id="q" placeholder="Consultar por número do diploma (ex: 57656-86)" />
             <button id="btn">Consultar</button>
@@ -176,7 +169,6 @@
 
         <div class="content">
 
-            <!-- LEFT SIDE -->
             <div class="left">
                 <div class="card" id="result">
                     <div class="muted">Resultado da verificação</div>
@@ -197,7 +189,6 @@
                 </div>
             </div>
 
-            <!-- RIGHT SIDE -->
             <div class="right">
                 <div class="card">
                     <div class="muted">Visualização</div>
@@ -216,7 +207,6 @@
     </footer>
 
     <script>
-        /* --- REGISTROS --- */
         const records = {
             '577546-75': {
                 diploma: '577546-75',
@@ -241,10 +231,18 @@
                 inst: 'Pontifícia Universidade Católica de São Paulo (PUC-SP)',
                 date: 'Conclusão em 24/06/2025',
                 status: 'Ativo'
+            },
+            /* --- NOVO REGISTRO --- */
+            '476566-87': {
+                diploma: '476566-87',
+                name: 'Nicole de Souza Queiroz',
+                degree: 'Licenciatura em Música',
+                inst: 'Pontifícia Universidade Católica do Rio Grande do Sul (PUC-RS)',
+                date: 'Conclusão em 10/08/2025',
+                status: 'Ativo'
             }
         };
 
-        /* --- CONSULTA --- */
         document.getElementById('btn').addEventListener('click', function () {
             const q = document.getElementById('q').value.trim();
             const result = records[q];
