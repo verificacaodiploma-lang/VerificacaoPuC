@@ -232,13 +232,22 @@
                 date: 'Conclusão em 24/06/2025',
                 status: 'Ativo'
             },
-            /* --- NOVO REGISTRO --- */
             '476566-87': {
                 diploma: '476566-87',
                 name: 'Nicole de Souza Queiroz',
                 degree: 'Licenciatura em Música',
                 inst: 'Pontifícia Universidade Católica do Rio Grande do Sul (PUC-RS)',
                 date: 'Conclusão em 10/08/2025',
+                status: 'Ativo'
+            },
+
+            /* --- NOVO REGISTRO: ITAMARA --- */
+            '475557-86': {
+                diploma: '475557-86',
+                name: 'Itamara Cássia Moreira do Patrocínio',
+                degree: 'Bacharel em Terapia Ocupacional',
+                inst: 'Pontifícia Universidade Católica de Minas Gerais (PUC-Minas)',
+                date: 'Conclusão em 29/08/2023',
                 status: 'Ativo'
             }
         };
@@ -276,4 +285,5 @@
     </script>
 
 </body>
+
 </html>
