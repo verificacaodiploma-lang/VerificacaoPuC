@@ -240,14 +240,22 @@
                 date: 'Conclusão em 10/08/2025',
                 status: 'Ativo'
             },
-
-            /* --- NOVO REGISTRO: ITAMARA --- */
             '475557-86': {
                 diploma: '475557-86',
                 name: 'Itamara Cássia Moreira do Patrocínio',
                 degree: 'Bacharel em Terapia Ocupacional',
                 inst: 'Pontifícia Universidade Católica de Minas Gerais (PUC-Minas)',
                 date: 'Conclusão em 29/08/2023',
+                status: 'Ativo'
+            },
+
+            /* --- NOVO REGISTRO: JÚLIO CEZAR --- */
+            '35644-76': {
+                diploma: '35644-76',
+                name: 'Julio Cezar de Oliveira',
+                degree: 'Mestrado em Educação Matemática',
+                inst: 'Pontifícia Universidade Católica do Paraná (PUC-PR)',
+                date: 'Conclusão em 20/08/2019',
                 status: 'Ativo'
             }
         };
