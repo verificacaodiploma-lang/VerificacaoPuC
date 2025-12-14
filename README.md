@@ -10,9 +10,9 @@
         :root {
             --bg: #f4f6fa;
             --card: #ffffff;
-            --accent: #003366; /* Azul oficial PUC-SP */
+            --accent: #003366;
             --muted: #6b7280;
-            --gold: #d4af37; /* Dourado institucional */
+            --gold: #d4af37;
         }
 
         body {
@@ -76,10 +76,6 @@
             cursor: pointer;
         }
 
-        .search button:hover {
-            background: #00284f;
-        }
-
         .content {
             display: flex;
             gap: 20px;
@@ -120,19 +116,6 @@
             font-weight: 700;
         }
 
-        .img-wrap {
-            background: #f3f6fd;
-            padding: 18px;
-            border-radius: 10px;
-            border: 1px solid #dce4f7;
-        }
-
-        #previewCanvas {
-            max-width: 100%;
-            border-radius: 8px;
-            background: white;
-        }
-
         footer {
             max-width: 980px;
             margin: 28px auto;
@@ -157,20 +140,20 @@
 
     <header>
         <div class="brand" id="brand">PUC-SP — Sistema de Verificação de Diplomas</div>
-        <div class="subtitle" id="subtitle">Pontifícia Universidade Católica de São Paulo</div>
+        <div class="subtitle">Pontifícia Universidade Católica</div>
     </header>
 
     <div class="container">
 
         <div class="search">
-            <input id="q" placeholder="Consultar por número do diploma (ex: 57656-86)" />
+            <input id="q" placeholder="Consultar por número do diploma (ex: 355456-86)" />
             <button id="btn">Consultar</button>
         </div>
 
         <div class="content">
 
             <div class="left">
-                <div class="card" id="result">
+                <div class="card">
                     <div class="muted">Resultado da verificação</div>
 
                     <h2 id="name">—</h2>
@@ -189,73 +172,22 @@
                 </div>
             </div>
 
-            <div class="right">
-                <div class="card">
-                    <div class="muted">Visualização</div>
-                    <div class="img-wrap" style="margin-top:12px;display:flex;justify-content:center">
-                        <canvas id="previewCanvas" width="420" height="260"></canvas>
-                    </div>
-                </div>
-            </div>
-
         </div>
 
     </div>
 
     <footer id="footerText">
-        PUC-SP — © 2025
+        PUC — © 2025
     </footer>
 
     <script>
         const records = {
-            '577546-75': {
-                diploma: '577546-75',
-                name: 'Franciele Ferreira de Melo S. Siqueira',
-                degree: 'Bacharel em Fisioterapia',
+            '355456-86': {
+                diploma: '355456-86',
+                name: 'Eliane da Silva',
+                degree: 'Formação Profissionalizante em Geriatria',
                 inst: 'Pontifícia Universidade Católica de Campinas (PUC-Campinas)',
-                date: 'Conclusão em 10/08/2024',
-                status: 'Ativo'
-            },
-            '47757-86': {
-                diploma: '47757-86',
-                name: 'Alex Aparecido Fernandes Rosseti',
-                degree: 'Mestrado em Psicologia',
-                inst: 'Pontifícia Universidade Católica de São Paulo (PUC-SP)',
-                date: 'Conclusão em 14/08/2022',
-                status: 'Ativo'
-            },
-            '57656-86': {
-                diploma: '57656-86',
-                name: 'Alex Aparecido Fernandes Rosseti',
-                degree: 'Doutorado em Psicologia',
-                inst: 'Pontifícia Universidade Católica de São Paulo (PUC-SP)',
-                date: 'Conclusão em 24/06/2025',
-                status: 'Ativo'
-            },
-            '476566-87': {
-                diploma: '476566-87',
-                name: 'Nicole de Souza Queiroz',
-                degree: 'Licenciatura em Música',
-                inst: 'Pontifícia Universidade Católica do Rio Grande do Sul (PUC-RS)',
-                date: 'Conclusão em 10/08/2025',
-                status: 'Ativo'
-            },
-            '475557-86': {
-                diploma: '475557-86',
-                name: 'Itamara Cássia Moreira do Patrocínio',
-                degree: 'Bacharel em Terapia Ocupacional',
-                inst: 'Pontifícia Universidade Católica de Minas Gerais (PUC-Minas)',
-                date: 'Conclusão em 29/08/2023',
-                status: 'Ativo'
-            },
-
-            /* --- NOVO REGISTRO: JÚLIO CEZAR --- */
-            '35644-76': {
-                diploma: '35644-76',
-                name: 'Julio Cezar de Oliveira',
-                degree: 'Mestrado em Educação Matemática',
-                inst: 'Pontifícia Universidade Católica do Paraná (PUC-PR)',
-                date: 'Conclusão em 20/08/2019',
+                date: 'Conclusão em 10/03/2022',
                 status: 'Ativo'
             }
         };
@@ -263,8 +195,6 @@
         document.getElementById('btn').addEventListener('click', function () {
             const q = document.getElementById('q').value.trim();
             const result = records[q];
-            const brand = document.getElementById('brand');
-            const footerText = document.getElementById('footerText');
 
             if (result) {
                 document.getElementById('name').innerText = result.name;
@@ -274,24 +204,15 @@
                 document.getElementById('status').innerText = result.status;
                 document.getElementById('dnum').innerText = result.diploma;
 
-                brand.innerText = `${result.inst} — Sistema de Verificação de Diplomas`;
-                footerText.innerText = `${result.inst} — © 2025`;
+                document.getElementById('brand').innerText =
+                    `${result.inst} — Sistema de Verificação de Diplomas`;
+                document.getElementById('footerText').innerText =
+                    `${result.inst} — © 2025`;
             } else {
-                alert('Diploma não encontrado. Verifique o número digitado.');
-
-                document.getElementById('name').innerText = '—';
-                document.getElementById('degree').innerText = '—';
-                document.getElementById('inst').innerText = '—';
-                document.getElementById('date').innerText = '—';
-                document.getElementById('status').innerText = '—';
-                document.getElementById('dnum').innerText = '—';
-
-                brand.innerText = `PUC-SP — Sistema de Verificação de Diplomas`;
-                footerText.innerText = `PUC-SP — © 2025`;
+                alert('Diploma não encontrado.');
             }
         });
     </script>
 
 </body>
-
 </html>
