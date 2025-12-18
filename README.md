@@ -86,10 +86,6 @@
             flex: 1;
         }
 
-        .right {
-            width: 460px;
-        }
-
         .card {
             background: var(--card);
             border-radius: 12px;
@@ -128,10 +124,6 @@
             .content {
                 flex-direction: column;
             }
-
-            .right {
-                width: 100%;
-            }
         }
     </style>
 </head>
@@ -146,12 +138,11 @@
     <div class="container">
 
         <div class="search">
-            <input id="q" placeholder="Consultar por número do diploma (ex: 355456-86)" />
+            <input id="q" placeholder="Consultar por número do diploma (ex: 47556-87)" />
             <button id="btn">Consultar</button>
         </div>
 
         <div class="content">
-
             <div class="left">
                 <div class="card">
                     <div class="muted">Resultado da verificação</div>
@@ -171,7 +162,6 @@
                     <div id="dnum" style="font-weight:700;margin-top:6px">—</div>
                 </div>
             </div>
-
         </div>
 
     </div>
@@ -188,6 +178,15 @@
                 degree: 'Formação Profissionalizante em Geriatria',
                 inst: 'Pontifícia Universidade Católica de Campinas (PUC-Campinas)',
                 date: 'Conclusão em 10/03/2022',
+                status: 'Ativo'
+            },
+
+            '47556-87': {
+                diploma: '47556-87',
+                name: 'Narcisa Batista Lunguinho Silva',
+                degree: 'Pós-Graduação em Psicopedagogia',
+                inst: 'Pontifícia Universidade Católica de São Paulo (PUC-SP)',
+                date: 'Conclusão em 23/06/2025',
                 status: 'Ativo'
             }
         };
