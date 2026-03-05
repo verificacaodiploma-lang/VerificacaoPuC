@@ -2,294 +2,312 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>PUC — Sistema de Verificação de Diplomas</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>PUC — Sistema de Verificação de Diplomas</title>
 
-    <style>
-        :root {
-            --bg: #f4f6fa;
-            --card: #ffffff;
-            --accent: #003366;
-            --muted: #6b7280;
-            --gold: #d4af37;
-        }
+<style>
+:root{
+--bg:#f4f6fa;
+--card:#ffffff;
+--accent:#003366;
+--muted:#6b7280;
+--gold:#d4af37;
+}
 
-        body {
-            font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
-            background: var(--bg);
-            margin: 0;
-            color: #0f172a;
-        }
+body{
+font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;
+background:var(--bg);
+margin:0;
+color:#0f172a;
+}
 
-        header {
-            background: var(--accent);
-            padding: 24px 28px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 4px solid var(--gold);
-        }
+header{
+background:var(--accent);
+padding:24px 28px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+border-bottom:4px solid var(--gold);
+}
 
-        .brand {
-            font-weight: 700;
-            font-size: 18px;
-            color: white;
-        }
+.brand{
+font-weight:700;
+font-size:18px;
+color:white;
+}
 
-        .subtitle {
-            color: #dfe7f2;
-            font-size: 14px;
-        }
+.subtitle{
+color:#dfe7f2;
+font-size:14px;
+}
 
-        .container {
-            max-width: 980px;
-            margin: 36px auto;
-            padding: 20px;
-        }
+.container{
+max-width:980px;
+margin:36px auto;
+padding:20px;
+}
 
-        .search {
-            background: var(--card);
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-            display: flex;
-            gap: 16px;
-            align-items: center;
-        }
+.search{
+background:var(--card);
+border-radius:12px;
+padding:20px;
+box-shadow:0 6px 18px rgba(0,0,0,0.06);
+display:flex;
+gap:16px;
+align-items:center;
+}
 
-        .search input {
-            flex: 1;
-            padding: 14px 16px;
-            border: 1px solid #d0d6df;
-            border-radius: 8px;
-            font-size: 15px;
-        }
+.search input{
+flex:1;
+padding:14px 16px;
+border:1px solid #d0d6df;
+border-radius:8px;
+font-size:15px;
+}
 
-        .search button {
-            background: var(--accent);
-            color: white;
-            border: none;
-            padding: 12px 18px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-        }
+.search button{
+background:var(--accent);
+color:white;
+border:none;
+padding:12px 18px;
+border-radius:8px;
+font-weight:600;
+cursor:pointer;
+}
 
-        .card {
-            background: var(--card);
-            border-radius: 12px;
-            padding: 22px;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-        }
+.card{
+background:var(--card);
+border-radius:12px;
+padding:22px;
+box-shadow:0 6px 18px rgba(0,0,0,0.06);
+}
 
-        .muted {
-            color: var(--muted);
-            font-size: 14px;
-        }
+.muted{
+color:var(--muted);
+font-size:14px;
+}
 
-        .meta {
-            margin-top: 12px;
-            font-size: 15px;
-        }
+.meta{
+margin-top:12px;
+font-size:15px;
+}
 
-        .label {
-            display: inline-block;
-            padding: 6px 12px;
-            border-radius: 8px;
-            background: var(--accent);
-            color: white;
-            font-weight: 700;
-        }
+.label{
+display:inline-block;
+padding:6px 12px;
+border-radius:8px;
+background:var(--accent);
+color:white;
+font-weight:700;
+}
 
-        footer {
-            max-width: 980px;
-            margin: 28px auto;
-            color: var(--muted);
-            font-size: 13px;
-            text-align: center;
-        }
-    </style>
+footer{
+max-width:980px;
+margin:28px auto;
+color:var(--muted);
+font-size:13px;
+text-align:center;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <div class="brand" id="brand">PUC — Sistema de Verificação de Diplomas</div>
-    <div class="subtitle">Pontifícia Universidade Católica</div>
+<div class="brand" id="brand">PUC — Sistema de Verificação de Diplomas</div>
+<div class="subtitle">Pontifícia Universidade Católica</div>
 </header>
 
 <div class="container">
 
-    <div class="search">
-        <input id="q" placeholder="Consultar por número do diploma (ex: 153564-12)" />
-        <button id="btn">Consultar</button>
-    </div>
+<div class="search">
+<input id="q" placeholder="Consultar por número do diploma (ex: 153564-12)" />
+<button id="btn">Consultar</button>
+</div>
 
-    <div class="card" style="margin-top:20px;">
-        <div class="muted">Resultado da verificação</div>
+<div class="card" style="margin-top:20px;">
+<div class="muted">Resultado da verificação</div>
 
-        <h2 id="name">—</h2>
-        <div class="meta" id="degree">—</div>
-        <div class="meta" id="inst">—</div>
-        <div class="meta" id="date">—</div>
+<h2 id="name">—</h2>
+<div class="meta" id="degree">—</div>
+<div class="meta" id="inst">—</div>
+<div class="meta" id="date">—</div>
 
-        <div style="margin-top:14px;">
-            <span class="label" id="status">—</span>
-        </div>
+<div style="margin-top:14px;">
+<span class="label" id="status">—</span>
+</div>
 
-        <hr style="margin:18px 0;border:none;border-top:1px solid #eef2f6" />
+<hr style="margin:18px 0;border:none;border-top:1px solid #eef2f6" />
 
-        <div class="muted">Número do diploma</div>
-        <div id="dnum" style="font-weight:700;margin-top:6px">—</div>
-    </div>
+<div class="muted">Número do diploma</div>
+<div id="dnum" style="font-weight:700;margin-top:6px">—</div>
+</div>
 
 </div>
 
 <footer id="footerText">
-    PUC — © 2025
+PUC — © 2025
 </footer>
 
 <script>
+
 const records = {
-    '355456-86': {
-        diploma: '355456-86',
-        name: 'Eliane da Silva',
-        degree: 'Formação Profissionalizante em Geriatria',
-        inst: 'Pontifícia Universidade Católica de Campinas (PUC-Campinas)',
-        date: 'Conclusão em 10/03/2022',
-        status: 'Ativo'
-    },
 
-    '47556-87': {
-        diploma: '47556-87',
-        name: 'Narcisa Batista Lunguinho Silva',
-        degree: 'Pós-Graduação em Psicopedagogia',
-        inst: 'Pontifícia Universidade Católica de São Paulo (PUC-SP)',
-        date: 'Conclusão em 23/06/2025',
-        status: 'Ativo'
-    },
+'355456-86':{
+diploma:'355456-86',
+name:'Eliane da Silva',
+degree:'Formação Profissionalizante em Geriatria',
+inst:'Pontifícia Universidade Católica de Campinas (PUC-Campinas)',
+date:'Conclusão em 10/03/2022',
+status:'Ativo'
+},
 
-    '354567-75': {
-        diploma: '354567-75',
-        name: 'Adriana Oliveira Silva Magalhães',
-        degree: 'Mestrado em Letras',
-        inst: 'Pontifícia Universidade Católica de Goiás (PUC-GO)',
-        date: 'Conclusão em 05/06/2025',
-        status: 'Ativo'
-    },
+'47556-87':{
+diploma:'47556-87',
+name:'Narcisa Batista Lunguinho Silva',
+degree:'Pós-Graduação em Psicopedagogia',
+inst:'Pontifícia Universidade Católica de São Paulo (PUC-SP)',
+date:'Conclusão em 23/06/2025',
+status:'Ativo'
+},
 
-    '476666-87': {
-        diploma: '476666-87',
-        name: 'Damaris Parralego Souto',
-        degree: 'Pós-Graduação em Psicanálise Clínica de Freud a Lacan',
-        inst: 'Pontifícia Universidade Católica do Paraná (PUC-PR)',
-        date: 'Conclusão em 13/08/2023',
-        status: 'Ativo'
-    },
+'354567-75':{
+diploma:'354567-75',
+name:'Adriana Oliveira Silva Magalhães',
+degree:'Mestrado em Letras',
+inst:'Pontifícia Universidade Católica de Goiás (PUC-GO)',
+date:'Conclusão em 05/06/2025',
+status:'Ativo'
+},
 
-    '3664321-08': {
-        diploma: '3664321-08',
-        name: 'Sílvia Helena Barros da Silva',
-        degree: 'Bacharel em Psicologia',
-        inst: 'Pontifícia Universidade Católica de São Paulo (PUC-SP)',
-        date: 'Conclusão em 15/08/2020',
-        status: 'Ativo'
-    },
+'476666-87':{
+diploma:'476666-87',
+name:'Damaris Parralego Souto',
+degree:'Pós-Graduação em Psicanálise Clínica de Freud a Lacan',
+inst:'Pontifícia Universidade Católica do Paraná (PUC-PR)',
+date:'Conclusão em 13/08/2023',
+status:'Ativo'
+},
 
-    '153564-12': {
-        diploma: '153564-12',
-        name: 'Maria Aparecida Monteiro Resende da Fonseca',
-        degree: 'Bacharel em Artes',
-        inst: 'Pontifícia Universidade Católica de Minas Gerais (PUC Minas)',
-        date: 'Conclusão em 13/12/2025',
-        status: 'Ativo'
-    },
+'3664321-08':{
+diploma:'3664321-08',
+name:'Sílvia Helena Barros da Silva',
+degree:'Bacharel em Psicologia',
+inst:'Pontifícia Universidade Católica de São Paulo (PUC-SP)',
+date:'Conclusão em 15/08/2020',
+status:'Ativo'
+},
 
-    '464467-87': {
-        diploma: '464467-87',
-        name: 'Felipe Cardoso',
-        degree: 'Mestrado em Letras',
-        inst: 'Pontifícia Universidade Católica de Goiás (PUC-GO)',
-        date: 'Conclusão em 05/06/2025',
-        status: 'Ativo'
-    },
+'153564-12':{
+diploma:'153564-12',
+name:'Maria Aparecida Monteiro Resende da Fonseca',
+degree:'Bacharel em Artes',
+inst:'Pontifícia Universidade Católica de Minas Gerais (PUC Minas)',
+date:'Conclusão em 13/12/2025',
+status:'Ativo'
+},
 
-    '3653578-87': {
-        diploma: '3653578-87',
-        name: 'Jobson José da Silva Pereira',
-        degree: 'Doutorado em Engenharia Eletrônica',
-        inst: 'Pontifícia Universidade Católica de Campinas (PUC-Campinas)',
-        date: 'Conclusão em 10/08/2025',
-        status: 'Ativo'
-    },
+'464467-87':{
+diploma:'464467-87',
+name:'Felipe Cardoso',
+degree:'Mestrado em Letras',
+inst:'Pontifícia Universidade Católica de Goiás (PUC-GO)',
+date:'Conclusão em 05/06/2025',
+status:'Ativo'
+},
 
-    '366567-77': {
-        diploma: '366567-77',
-        name: 'Fernanda Dourado Lima',
-        degree: 'Doutorado em Psicologia',
-        inst: 'Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio)',
-        date: 'Conclusão em 23/08/2025',
-        status: 'Ativo'
-    },
+'3653578-87':{
+diploma:'3653578-87',
+name:'Jobson José da Silva Pereira',
+degree:'Doutorado em Engenharia Eletrônica',
+inst:'Pontifícia Universidade Católica de Campinas (PUC-Campinas)',
+date:'Conclusão em 10/08/2025',
+status:'Ativo'
+},
 
-    '2569876-98': {
-        diploma: '2569876-98',
-        name: 'Robson Lima',
-        degree: 'Mestrado em Psicologia — Linha Psicologia Social',
-        inst: 'Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio)',
-        date: 'Conclusão em 24/12/2025',
-        status: 'Ativo'
-    },
+'366567-77':{
+diploma:'366567-77',
+name:'Fernanda Dourado Lima',
+degree:'Doutorado em Psicologia',
+inst:'Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio)',
+date:'Conclusão em 23/08/2025',
+status:'Ativo'
+},
 
-    '46642282-33': {
-        diploma: '46642282-33',
-        name: 'Leandro da Silva Costa',
-        degree: 'Mestrado em Geografia',
-        inst: 'Pontifícia Universidade Católica de São Paulo (PUC-SP)',
-        date: 'Conclusão em 03/02/2025',
-        status: 'Ativo'
-    },
+'2569876-98':{
+diploma:'2569876-98',
+name:'Robson Lima',
+degree:'Mestrado em Psicologia — Linha Psicologia Social',
+inst:'Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio)',
+date:'Conclusão em 24/12/2025',
+status:'Ativo'
+},
 
-    '145774-88': {
-        diploma: '145774-88',
-        name: 'Edna Rosa da Silva',
-        degree: 'Pós-Graduação em Psico-oncologia',
-        inst: 'Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio)',
-        date: 'Conclusão em 06/08/2023',
-        status: 'Ativo'
-    },
+'46642282-33':{
+diploma:'46642282-33',
+name:'Leandro da Silva Costa',
+degree:'Mestrado em Geografia',
+inst:'Pontifícia Universidade Católica de São Paulo (PUC-SP)',
+date:'Conclusão em 03/02/2025',
+status:'Ativo'
+},
 
-    '467755-88': {
-        diploma: '467755-88',
-        name: 'Cláudia Lucinda Lourenço Pereira',
-        degree: 'Pós-Graduação em Psicanálise',
-        inst: 'Pontifícia Universidade Católica de São Paulo (PUC-SP)',
-        date: 'Conclusão em 23/08/2024',
-        status: 'Ativo'
-    }
+'145774-88':{
+diploma:'145774-88',
+name:'Edna Rosa da Silva',
+degree:'Pós-Graduação em Psico-oncologia',
+inst:'Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio)',
+date:'Conclusão em 06/08/2023',
+status:'Ativo'
+},
+
+'467755-88':{
+diploma:'467755-88',
+name:'Cláudia Lucinda Lourenço Pereira',
+degree:'Pós-Graduação em Psicanálise',
+inst:'Pontifícia Universidade Católica de São Paulo (PUC-SP)',
+date:'Conclusão em 23/08/2024',
+status:'Ativo'
+},
+
+'257753-98':{
+diploma:'257753-98',
+name:'Lauriza Gonçalves de Almeida',
+degree:'Licenciatura em Pedagogia',
+inst:'Pontifícia Universidade Católica de São Paulo (PUC-SP)',
+date:'Conclusão em 09/08/2024',
+status:'Ativo'
+}
+
 };
 
-document.getElementById('btn').addEventListener('click', function () {
-    const q = document.getElementById('q').value.trim();
-    const result = records[q];
+document.getElementById('btn').addEventListener('click',function(){
 
-    if (result) {
-        document.getElementById('name').innerText = result.name;
-        document.getElementById('degree').innerText = result.degree;
-        document.getElementById('inst').innerText = result.inst;
-        document.getElementById('date').innerText = result.date;
-        document.getElementById('status').innerText = result.status;
-        document.getElementById('dnum').innerText = result.diploma;
+const q=document.getElementById('q').value.trim();
+const result=records[q];
 
-        document.getElementById('brand').innerText =
-            `${result.inst} — Sistema de Verificação de Diplomas`;
-        document.getElementById('footerText').innerText =
-            `${result.inst} — © 2025`;
-    } else {
-        alert('Diploma não encontrado.');
-    }
+if(result){
+
+document.getElementById('name').innerText=result.name;
+document.getElementById('degree').innerText=result.degree;
+document.getElementById('inst').innerText=result.inst;
+document.getElementById('date').innerText=result.date;
+document.getElementById('status').innerText=result.status;
+document.getElementById('dnum').innerText=result.diploma;
+
+document.getElementById('brand').innerText=
+`${result.inst} — Sistema de Verificação de Diplomas`;
+
+document.getElementById('footerText').innerText=
+`${result.inst} — © 2025`;
+
+}else{
+alert('Diploma não encontrado.');
+}
+
 });
+
 </script>
 
 </body>
