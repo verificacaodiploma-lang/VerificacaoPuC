@@ -104,87 +104,39 @@ header img{
 
 <script>
 const records={
-'153564-12':{
-name:'Maria Aparecida Monteiro',
-degree:'Bacharel em Artes',
-inst:'PUC Minas',
-date:'Conclusão em 2025',
-status:'Ativo',
-diploma:'153564-12'
-}
+  '153564-12':{
+    name:'Maria Aparecida Monteiro',
+    degree:'Bacharel em Artes',
+    inst:'PUC Minas',
+    date:'Conclusão em 2025',
+    status:'Ativo',
+    diploma:'153564-12'
+  },
+
+  '357754-88':{
+    name:'Denizia Cândida da Silva Santos',
+    degree:'Mestrado em Educação',
+    inst:'Católica do Rio de Janeiro - PUC',
+    date:'Conclusão em 19/12/2025',
+    status:'Ativo',
+    diploma:'357754-88'
+  }
 };
 
 function buscar(){
-let q=document.getElementById('q').value.trim();
-let r=records[q];
+  let q=document.getElementById('q').value.trim();
+  let r=records[q];
 
-if(r){
-document.getElementById('name').innerText=r.name;
-document.getElementById('degree').innerText=r.degree;
-document.getElementById('inst').innerText=r.inst;
-document.getElementById('date').innerText=r.date;
-document.getElementById('status').innerText=r.status;
-document.getElementById('dnum').innerText=r.diploma;
-}else{
-alert('Diploma não encontrado');
-}
-}
-</script>
-
-</body>
-</html><header>
-<img src="logo.png">
-<strong>PUC — Sistema de Verificação</strong>
-</header>
-
-<div class="container">
-
-<h2>Verificação de Diplomas</h2>
-
-<div class="search">
-<input id="q" placeholder="Digite o número do diploma">
-<button onclick="buscar()">Consultar</button>
-</div>
-
-<div class="card">
-<h2 id="name">—</h2>
-<div id="degree">—</div>
-<div id="inst">—</div>
-<div id="date">—</div>
-<br>
-<span class="label" id="status">—</span>
-<hr>
-<div id="dnum">—</div>
-</div>
-
-</div>
-
-<script>
-const records={
-'153564-12':{
-name:'Maria Aparecida Monteiro',
-degree:'Bacharel em Artes',
-inst:'PUC Minas',
-date:'Conclusão em 2025',
-status:'Ativo',
-diploma:'153564-12'
-}
-};
-
-function buscar(){
-let q=document.getElementById('q').value;
-let r=records[q];
-
-if(r){
-name.innerText=r.name;
-degree.innerText=r.degree;
-inst.innerText=r.inst;
-date.innerText=r.date;
-status.innerText=r.status;
-dnum.innerText=r.diploma;
-}else{
-alert('Diploma não encontrado');
-}
+  if(r){
+    document.getElementById('name').innerText=r.name;
+    document.getElementById('degree').innerText=r.degree;
+    document.getElementById('inst').innerText=r.inst;
+    document.getElementById('date').innerText=r.date;
+    document.getElementById('status').innerText=r.status;
+    document.getElementById('dnum').innerText=r.diploma;
+  }else{
+    alert('Diploma não encontrado');
+  }
 }
 </script>
 
